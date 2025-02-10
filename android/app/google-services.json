@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "564907665226",
+    "project_id": "to-do-c2gean",
+    "storage_bucket": "to-do-c2gean.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564907665226:android:05c739c2884c211e5f03b3",
+        "android_client_info": {
+          "package_name": "com.mycompany.todo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIdE2A14QquBhSFKs3gFknC79tthNKSPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
