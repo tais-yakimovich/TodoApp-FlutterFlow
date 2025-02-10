@@ -83,8 +83,9 @@ class _LoginWidgetState extends State<LoginWidget>
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         'assets/images/logoToDo.png',
-                        width: 400.0,
+                        width: 210.0,
                         fit: BoxFit.cover,
+                        alignment: const Alignment(0.0, -1.0),
                       ),
                     ),
                     Container(

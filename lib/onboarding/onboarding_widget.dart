@@ -297,7 +297,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
-                            hintText: 'Phone Number...',
+                            hintText: 'Phone #...',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelLarge
                                 .override(
@@ -412,9 +412,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           }
                         },
                         text: 'Set Birthday',
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.calendar_today,
-                          size: 15.0,
+                          color: FlutterFlowTheme.of(context).secondary,
+                          size: 24.0,
                         ),
                         options: FFButtonOptions(
                           width: double.infinity,
@@ -463,8 +464,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           }
                         },
                         text: 'Favourite Color',
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.color_lens,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           size: 24.0,
                         ),
                         options: FFButtonOptions(
