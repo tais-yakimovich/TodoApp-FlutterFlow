@@ -1,0 +1,43 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "User",
+    "type": "object",
+    "properties": {
+      "uid": {
+        "type": "string",
+        "description": "Unique identifier for the user."
+      },
+      "display_name": {
+        "type": "string",
+        "description": "User's display name."
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "User's email address."
+      },
+      "phone_number": {
+        "type": "string",
+        "description": "User's phone number.",
+        "nullable": true
+      },
+      "photo_url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL to the user's profile picture.",
+        "nullable": true
+      },
+      "birthday": {
+        "type": "string",
+        "format": "date-time",
+        "description": "User's birth date as a timestamp."
+      },
+      "created_time": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Timestamp when the user was created."
+      }
+    },
+    "required": ["uid", "display_name", "email", "birthday", "created_time"]
+  }
+  
