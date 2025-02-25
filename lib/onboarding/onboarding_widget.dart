@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterflow_colorpicker/flutterflow_colorpicker.dart';
@@ -15,9 +14,6 @@ export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
-
-  static String routeName = 'Onboarding';
-  static String routePath = '/onboarding';
 
   @override
   State<OnboardingWidget> createState() => _OnboardingWidgetState();
@@ -62,7 +58,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsets.all(24.0),
+            padding: const EdgeInsets.all(24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -150,10 +146,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ));
                         },
                         child: Stack(
-                          alignment: AlignmentDirectional(-1.0, 1.0),
+                          alignment: const AlignmentDirectional(-1.0, 1.0),
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 10.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Container(
@@ -197,14 +193,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.textController1,
                           focusNode: _model.textFieldFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController1',
-                            Duration(milliseconds: 2000),
+                            const Duration(milliseconds: 2000),
                             () => safeSetState(() {}),
                           ),
                           autofocus: false,
@@ -232,7 +228,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0x00000000),
                                 width: 1.0,
                               ),
@@ -255,7 +251,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 26.0, 24.0, 26.0),
                             suffixIcon: _model.textController1!.text.isNotEmpty
                                 ? InkWell(
@@ -263,7 +259,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       _model.textController1?.clear();
                                       safeSetState(() {});
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.clear,
                                       size: 24.0,
                                     ),
@@ -281,14 +277,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               .asValidator(context),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.phoneTextController,
                           focusNode: _model.phoneFocusNode,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.phoneTextController',
-                            Duration(milliseconds: 2000),
+                            const Duration(milliseconds: 2000),
                             () => safeSetState(() {}),
                           ),
                           autofocus: false,
@@ -316,7 +312,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Color(0x00000000),
                                 width: 1.0,
                               ),
@@ -339,7 +335,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             filled: true,
                             fillColor: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 26.0, 24.0, 26.0),
                             suffixIcon:
                                 _model.phoneTextController!.text.isNotEmpty
@@ -348,7 +344,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                           _model.phoneTextController?.clear();
                                           safeSetState(() {});
                                         },
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.clear,
                                           size: 24.0,
                                         ),
@@ -368,7 +364,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          final _datePickedDate = await showDatePicker(
+                          final datePickedDate = await showDatePicker(
                             context: context,
                             initialDate: getCurrentTimestamp,
                             firstDate: DateTime(1900),
@@ -405,17 +401,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             },
                           );
 
-                          if (_datePickedDate != null) {
+                          if (datePickedDate != null) {
                             safeSetState(() {
                               _model.datePicked = DateTime(
-                                _datePickedDate.year,
-                                _datePickedDate.month,
-                                _datePickedDate.day,
+                                datePickedDate.year,
+                                datePickedDate.month,
+                                datePickedDate.day,
                               );
-                            });
-                          } else if (_model.datePicked != null) {
-                            safeSetState(() {
-                              _model.datePicked = getCurrentTimestamp;
                             });
                           }
                         },
@@ -428,9 +420,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -448,10 +440,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          final _colorPickedColor = await showFFColorPicker(
+                          final colorPickedColor = await showFFColorPicker(
                             context,
                             currentColor: _model.colorPicked ??=
-                                Color(0x00000000),
+                                const Color(0x00000000),
                             showRecentColors: true,
                             allowOpacity: true,
                             textColor: FlutterFlowTheme.of(context).primaryText,
@@ -466,9 +458,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             displayAsBottomSheet: isMobileWidth(context),
                           );
 
-                          if (_colorPickedColor != null) {
+                          if (colorPickedColor != null) {
                             safeSetState(
-                                () => _model.colorPicked = _colorPickedColor);
+                                () => _model.colorPicked = colorPickedColor);
                           }
                         },
                         text: 'Favourite Color',
@@ -480,9 +472,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -498,7 +490,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           borderRadius: BorderRadius.circular(24.0),
                         ),
                       ),
-                    ].divide(SizedBox(height: 24.0)),
+                    ].divide(const SizedBox(height: 24.0)),
                   ),
                 ),
                 FFButtonWidget(
@@ -510,16 +502,16 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       favColor: _model.colorPicked,
                     ));
 
-                    context.goNamed(TasksWidget.routeName);
+                    context.goNamed('tasks');
                   },
                   text: 'Complete Profile',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 70.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(

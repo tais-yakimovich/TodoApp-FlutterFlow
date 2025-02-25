@@ -3,16 +3,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
-
-  static String routeName = 'Login';
-  static String routePath = '/login';
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -72,12 +68,12 @@ class _LoginWidgetState extends State<LoginWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Container(
               width: 400.0,
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,16 +85,16 @@ class _LoginWidgetState extends State<LoginWidget>
                         'assets/images/logoToDo.png',
                         width: 210.0,
                         fit: BoxFit.cover,
-                        alignment: Alignment(0.0, -1.0),
+                        alignment: const Alignment(0.0, -1.0),
                       ),
                     ),
                     Container(
                       height: 305.41,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         children: [
                           Align(
-                            alignment: Alignment(0.0, 0),
+                            alignment: const Alignment(0.0, 0),
                             child: TabBar(
                               labelColor:
                                   FlutterFlowTheme.of(context).primaryText,
@@ -116,8 +112,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                     fontFamily: 'Inter',
                                     letterSpacing: 0.0,
                                   ),
-                              indicatorColor: Color(0x0089DC8C),
-                              tabs: [
+                              indicatorColor: const Color(0x0089DC8C),
+                              tabs: const [
                                 Tab(
                                   text: 'SignUp',
                                 ),
@@ -141,7 +137,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller:
@@ -179,7 +175,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   BorderRadius.circular(24.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -212,7 +208,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 26.0, 24.0, 26.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -231,7 +227,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .asValidator(context),
                                         ),
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -270,7 +266,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   BorderRadius.circular(24.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -303,7 +299,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 26.0, 24.0, 26.0),
                                             suffixIcon: InkWell(
                                               onTap: () => safeSetState(
@@ -337,7 +333,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .asValidator(context),
                                         ),
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -376,7 +372,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   BorderRadius.circular(24.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -409,7 +405,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 26.0, 24.0, 26.0),
                                             suffixIcon: InkWell(
                                               onTap: () => safeSetState(
@@ -443,7 +439,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .asValidator(context),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 12.0)),
+                                    ].divide(const SizedBox(height: 12.0)),
                                   ),
                                 ),
                                 Form(
@@ -452,7 +448,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model.logiTextController,
@@ -488,7 +484,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   BorderRadius.circular(24.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -521,7 +517,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 26.0, 24.0, 26.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -540,7 +536,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .asValidator(context),
                                         ),
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: double.infinity,
                                         child: TextFormField(
                                           controller: _model
@@ -579,7 +575,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                   BorderRadius.circular(24.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -612,7 +608,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .secondaryBackground,
                                             contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 26.0, 24.0, 26.0),
                                             suffixIcon: InkWell(
                                               onTap: () => safeSetState(
@@ -646,7 +642,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                               .asValidator(context),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 12.0)),
+                                    ].divide(const SizedBox(height: 12.0)),
                                   ),
                                 ),
                               ],
@@ -675,16 +671,15 @@ class _LoginWidgetState extends State<LoginWidget>
                                 return;
                               }
 
-                              context.goNamedAuth(
-                                  TasksWidget.routeName, context.mounted);
+                              context.goNamedAuth('tasks', context.mounted);
                             },
                             text: 'LogIn',
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 70.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -712,7 +707,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                   _model.signUpConfirmedPasswordTextController
                                       .text) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
+                                  const SnackBar(
                                     content: Text(
                                       'Passwords don\'t match!',
                                     ),
@@ -742,15 +737,15 @@ class _LoginWidgetState extends State<LoginWidget>
                                   ));
 
                               context.goNamedAuth(
-                                  OnboardingWidget.routeName, context.mounted);
+                                  'Onboarding', context.mounted);
                             },
                             text: 'SignUp',
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 70.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
