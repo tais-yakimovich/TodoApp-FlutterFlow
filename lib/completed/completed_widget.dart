@@ -5,12 +5,16 @@ import '/components/task_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'completed_model.dart';
 export 'completed_model.dart';
 
 class CompletedWidget extends StatefulWidget {
   const CompletedWidget({super.key});
+
+  static String routeName = 'Completed';
+  static String routePath = '/completed';
 
   @override
   State<CompletedWidget> createState() => _CompletedWidgetState();
@@ -60,7 +64,7 @@ class _CompletedWidgetState extends State<CompletedWidget> {
                   },
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
-                    child: const AddTaskWidget(),
+                    child: AddTaskWidget(),
                   ),
                 );
               },
@@ -89,111 +93,120 @@ class _CompletedWidgetState extends State<CompletedWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                  child: Text(
-                    'Completed',
-                    style: FlutterFlowTheme.of(context).headlineMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
-                        ),
-                  ),
-                ),
-                Expanded(
-                  child: StreamBuilder<List<TasksRecord>>(
-                    stream: queryTasksRecord(
-                      queryBuilder: (tasksRecord) => tasksRecord
-                          .where(
-                            'user',
-                            isEqualTo: currentUserReference,
-                          )
-                          .where(
-                            'completed',
-                            isEqualTo: true,
-                          ),
+                Align(
+                  alignment: AlignmentDirectional(-1.0, -1.0),
+                  child: FlutterFlowIconButton(
+                    borderColor:
+                        FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: 8.0,
+                    borderWidth: 1.0,
+                    buttonSize: 45.6,
+                    fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                    icon: Icon(
+                      Icons.logout,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      size: 30.0,
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<TasksRecord> listViewTasksRecordList =
-                          snapshot.data!;
+                    onPressed: () async {
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
 
-                      return ListView.separated(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewTasksRecordList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 12.0),
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewTasksRecord =
-                              listViewTasksRecordList[listViewIndex];
-                          return TaskWidget(
-                            key: Key(
-                                'Keynzp_${listViewIndex}_of_${listViewTasksRecordList.length}'),
-                            taskDoc: listViewTasksRecord,
-                            check: () async {
-                              await listViewTasksRecord.reference
-                                  .update(createTasksRecordData(
-                                completed: false,
-                              ));
-                            },
-                          );
-                        },
-                      );
+                      context.goNamedAuth(
+                          LoginWidget.routeName, context.mounted);
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(-1.0, -1.0),
-                        child: FlutterFlowIconButton(
-                          borderColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: 8.0,
-                          borderWidth: 1.0,
-                          buttonSize: 45.6,
-                          fillColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
-                          icon: Icon(
-                            Icons.logout,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 40.0,
+                Flexible(
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 100.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            'Completed',
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
-                          onPressed: () async {
-                            GoRouter.of(context).prepareAuthEvent();
-                            await authManager.signOut();
-                            GoRouter.of(context).clearRedirectLocation();
-
-                            context.goNamedAuth('Login', context.mounted);
-                          },
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          child: StreamBuilder<List<TasksRecord>>(
+                            stream: queryTasksRecord(
+                              queryBuilder: (tasksRecord) => tasksRecord
+                                  .where(
+                                    'user',
+                                    isEqualTo: currentUserReference,
+                                  )
+                                  .where(
+                                    'completed',
+                                    isEqualTo: true,
+                                  ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<TasksRecord> listViewTasksRecordList =
+                                  snapshot.data!;
+
+                              return ListView.separated(
+                                padding: EdgeInsets.zero,
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: listViewTasksRecordList.length,
+                                separatorBuilder: (_, __) =>
+                                    SizedBox(height: 12.0),
+                                itemBuilder: (context, listViewIndex) {
+                                  final listViewTasksRecord =
+                                      listViewTasksRecordList[listViewIndex];
+                                  return TaskWidget(
+                                    key: Key(
+                                        'Keynzp_${listViewIndex}_of_${listViewTasksRecordList.length}'),
+                                    taskDoc: listViewTasksRecord,
+                                    check: () async {
+                                      await listViewTasksRecord.reference
+                                          .update(createTasksRecordData(
+                                        completed: false,
+                                      ));
+                                    },
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ].divide(SizedBox(height: 12.0)),
+                    ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 24.0)),
             ),
           ),
         ),
